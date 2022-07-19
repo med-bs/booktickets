@@ -3,6 +3,7 @@ import 'package:booktickets/screens/ticket_view.dart';
 import 'package:booktickets/utils/app_info_list.dart';
 import 'package:booktickets/utils/app_layout.dart';
 import 'package:booktickets/utils/app_styles.dart';
+import 'package:booktickets/widget/view_all_widget.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -60,15 +61,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Gap(AppLayout.getHeight(20)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Upcoming Flights", style: Styles.headLineStyle2,),
-                    InkWell(
-                        onTap: (){print("view all");},
-                        child: Text("View all", style: Styles.textStyle.copyWith(color: Styles.primaryColor),)),
-                  ],
-                ),
+                const AppViewAllTextWidget(bigText: "Upcoming Flights", smallText: "View all"),
               ],
             ),
           ),
@@ -83,15 +76,7 @@ class HomeScreen extends StatelessWidget {
           Gap(AppLayout.getHeight(15)),
           Container(
             padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Hotels", style: Styles.headLineStyle2,),
-                InkWell(
-                    onTap: (){print("view all");},
-                    child: Text("View all", style: Styles.textStyle.copyWith(color: Styles.primaryColor),)),
-              ],
-            ),
+            child: const AppViewAllTextWidget(bigText: "Hotels", smallText: "View all"),
           ),
           Gap(AppLayout.getHeight(15)),
           SingleChildScrollView(
