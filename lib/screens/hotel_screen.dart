@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class HotelScreen extends StatelessWidget {
-  const HotelScreen({Key? key}) : super(key: key);
+  final Map<String, dynamic> hotel;
+  const HotelScreen({Key? key, required this.hotel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +20,8 @@ class HotelScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
         boxShadow: [BoxShadow(
           color: Styles.primaryColor.withOpacity(0.3),
-          blurRadius: 10,
-          spreadRadius: 5
+          blurRadius: 7,
+          spreadRadius: 3
         )]
       ),
       child: Column(
@@ -31,23 +32,23 @@ class HotelScreen extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Styles.primaryColor,
-              image: const DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/images/one.png"),
+                image: AssetImage("assets/images/${hotel["image"]}"),
                 //2.40
               )
             ),
           ),
           const Gap(10),
-          Text("Open space",
+          Text(hotel["place"],
           style: Styles.headLineStyle2.copyWith(color: Styles.kakiColor),
           ),
           const Gap(5),
-          Text("London",
+          Text(hotel["destination"],
             style: Styles.headLineStyle2.copyWith(color: Colors.white),
           ),
           const Gap(10),
-          Text("\$40/night",
+          Text("\$${hotel["price"]}/night",
             style: Styles.headLineStyle1.copyWith(color: Styles.kakiColor),
           ),
         ],
