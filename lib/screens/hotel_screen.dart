@@ -12,12 +12,12 @@ class HotelScreen extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return Container(
       width: size.width * 0.6,
-      height: 350,
-      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 20),
-      margin: const EdgeInsets.only(right: 20,top: 5),
+      height: AppLayout.getHeight(350),
+      padding: EdgeInsets.symmetric(horizontal: AppLayout.getWidth(15),vertical: AppLayout.getHeight(20)),
+      margin: EdgeInsets.only(right: AppLayout.getWidth(20),top: AppLayout.getHeight(5)),
       decoration: BoxDecoration(
         color: Styles.primaryColor,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(AppLayout.getHeight(25)),
         boxShadow: [BoxShadow(
           color: Styles.primaryColor.withOpacity(0.3),
           blurRadius: 7,
@@ -28,9 +28,9 @@ class HotelScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 180,
+            height: AppLayout.getHeight(180),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppLayout.getHeight(10)),
               color: Styles.primaryColor,
               image: DecorationImage(
                 fit: BoxFit.cover,
@@ -39,15 +39,15 @@ class HotelScreen extends StatelessWidget {
               )
             ),
           ),
-          const Gap(10),
+          Gap(AppLayout.getHeight(10)),
           Text(hotel["place"],
           style: Styles.headLineStyle2.copyWith(color: Styles.kakiColor),
           ),
-          const Gap(5),
+          Gap(AppLayout.getHeight(5)),
           Text(hotel["destination"],
             style: Styles.headLineStyle2.copyWith(color: Colors.white),
           ),
-          const Gap(10),
+          Gap(AppLayout.getHeight(10)),
           Text("\$${hotel["price"]}/night",
             style: Styles.headLineStyle1.copyWith(color: Styles.kakiColor),
           ),
